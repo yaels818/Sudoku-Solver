@@ -5,19 +5,20 @@ DOC: 17/09/2023
 
 Notes:
     1. Default board size is 3X3. 
-        You can change it using the SIZE and ROOT_SIZE constant variables
-        and it would work for a 4X4 or any other size you might want.
+        You can change it using the SIZE variable and it would work 
+        for a 2X2 or any other size you might want.
     
     2. User can input any (solvable) Sudoku board, example format is documented 
         in the input_into_board function.
 */
 
 #include <iostream>
+#include <cmath>
 #include <vector>
 using namespace std;
 
 int const SIZE = 9;
-int const ROOT_SIZE = 3;
+int const ROOT_SIZE = sqrt(SIZE);
 
 int input_into_board(vector<vector<int>> *board){
     /*
@@ -26,16 +27,24 @@ int input_into_board(vector<vector<int>> *board){
         Parameters:
             vector<vector<int>> *board = pointer to our board
 
-        Input example format:
-            0 4 0 1 0 0 0 5 0
-            1 0 7 0 0 3 9 6 0
-            5 2 0 0 0 8 0 0 0
-            0 0 0 0 0 0 0 1 7
-            0 0 0 9 0 6 8 0 0
-            8 0 3 0 5 0 6 2 0
-            0 9 0 0 6 0 5 4 3
-            6 0 0 0 8 0 7 0 0
-            2 5 0 0 9 7 1 0 0
+        Input example formats:
+
+            Input 1 - 3x3
+                0 4 0 1 0 0 0 5 0
+                1 0 7 0 0 3 9 6 0
+                5 2 0 0 0 8 0 0 0
+                0 0 0 0 0 0 0 1 7
+                0 0 0 9 0 6 8 0 0
+                8 0 3 0 5 0 6 2 0
+                0 9 0 0 6 0 5 4 3
+                6 0 0 0 8 0 7 0 0
+                2 5 0 0 9 7 1 0 0
+
+            Input 2 - 2x2
+                0 1 3 2 
+                0 0 0 0 
+                0 4 0 1 
+                0 0 0 0
         
         Return:
             0 if all input cells are valid (within board's size)
