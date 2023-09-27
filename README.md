@@ -25,4 +25,18 @@ Backtracking makes the coding a bit more complex, but it also makes life easier.
    <br> That means that by the time we get to the last cell of the board we KNOW we reached the solution, and that it's valid - because all placements before this cell were valid.
 
 4. **Our Goal:** Fill the board!
-   
+
+## Screenshots of This Solver in Action
+### Against a baby 4x4 board:
+
+![Screenshot from 2023-09-19 01-58-30](https://github.com/yaels818/Sudoku-Solver/assets/99403939/b91eeedf-f751-4251-8435-860a49826d4e)
+
+### Against a normal 9x9 board:
+
+![Screenshot from 2023-09-19 01-42-13](https://github.com/yaels818/Sudoku-Solver/assets/99403939/a9c5248e-6c93-40a3-9314-17a2dbaebac4)
+
+### Against an expert 16x16 board:
+
+![Screenshot from 2023-09-22 22-01-20](https://github.com/yaels818/Sudoku-Solver/assets/99403939/8a281552-b2db-46bd-9964-50f98d435757)
+
+
