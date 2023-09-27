@@ -4,12 +4,14 @@ Author: yaels818
 DOC: 17/09/2023
 
 Notes:
-    1. Default board size is 3X3. 
+    1. Default board size is 9x9. 
         You can change it using the SIZE variable and it would work 
-        for a 2X2 or any other size you might want.
+        for any square-sized board you might want, like 4x4 or 16x16.
     
-    2. User can input any (solvable) Sudoku board, example format is documented 
-        in the input_into_board function.
+    2. You can input any Sudoku board, example format is documented 
+        in the input_into_board function. 
+    
+    3. If the board is solvable, the program will print the solution.
 */
 
 #include <iostream>
@@ -168,7 +170,7 @@ int* find_empty_cell(vector<vector<int>> *board){
 bool is_digit_valid_in_pos(vector<vector<int>> *board, int digit, int* pos){
     /*
         Check if placing the digit on board in position pos creates conflicts within
-        the row, the column, or the box (square). 
+        the row, the column, or the sub-grid (box). 
 
         Parameters:
             vector<vector<int>> *board  = pointer to our board
@@ -202,8 +204,8 @@ bool is_digit_valid_in_pos(vector<vector<int>> *board, int digit, int* pos){
             return false;
     }
 
-    // check if valid within box:
-    //---------------------------
+    // check if valid within sub-grid:
+    //--------------------------------
     /*
         Example: 
             Say our empty pos is [0,2] ==> box_x = 2/3 = 0, box_y = 0/3 = 0
@@ -228,7 +230,7 @@ bool is_digit_valid_in_pos(vector<vector<int>> *board, int digit, int* pos){
         2 5 0 | 0 9 7 | 1 0 0
 
     */
-    // find the box matching the new digit's position
+    // find the box (sub-grid) matching the new digit's position
     int box_x = pos[1] / ROOT_SIZE;
     int box_y = pos[0] / ROOT_SIZE;
 
